@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <limits> 
 #include "Database.h"
 
 using namespace std;
@@ -26,7 +27,7 @@ int main(int argc, char** argv) {
     Renovation* ren2 = new Renovation(22, 23, "button", "erased", "repaint", 25, 254, 21, 400);
     ren2->display();
     delete ren2;
-    
+
     bool done = false;
 
     while (!done) {
@@ -81,8 +82,22 @@ void addRenovation(Database& inDB) {
 
     cout << "Malfunction code? ";
     cin >> malfunctionCode;
-    cout << "Model code? ";
+        while (std::cin.fail()) {
+        	std::cerr << "Please enter a valid integer for the malfunction code." << std::endl;
+        	std::cin.clear();
+        	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        	std::cout << "Malfunction code? ";
+        	std::cin >> malfunctionCode;
+        }
+    cout << "Model code? ";    
     cin >> modelCode;
+        while (std::cin.fail()) {
+        	std::cerr << "Please enter a valid integer for the malfunction code." << std::endl;
+        	std::cin.clear();
+        	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        	std::cout << "Malfunction code? ";
+        	std::cin >> modelCode;
+        }
     cout << "Description? ";
     cin >> description;
     cout << "Symptoms? ";
@@ -91,12 +106,40 @@ void addRenovation(Database& inDB) {
     cin >> repairMethods;
     cout << "Part code 1? ";
     cin >> partCode1;
+        while (std::cin.fail()) {
+        	std::cerr << "Please enter a valid integer for the malfunction code." << std::endl;
+        	std::cin.clear();
+        	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        	std::cout << "Malfunction code? ";
+        	std::cin >> partCode1;
+        }
     cout << "Part code 2? ";
     cin >> partCode2;
+        while (std::cin.fail()) {
+        	std::cerr << "Please enter a valid integer for the malfunction code." << std::endl;
+        	std::cin.clear();
+        	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        	std::cout << "Malfunction code? ";
+        	std::cin >> partCode2;
+        }
     cout << "Part code 3? ";
     cin >> partCode3;
+        while (std::cin.fail()) {
+        	std::cerr << "Please enter a valid integer for the malfunction code." << std::endl;
+        	std::cin.clear();
+        	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        	std::cout << "Malfunction code? ";
+        	std::cin >> partCode3;
+        }
     cout << "Labor cost? ";
     cin >> laborCost;
+        while (std::cin.fail()) {
+        	std::cerr << "Please enter a valid integer for the malfunction code." << std::endl;
+        	std::cin.clear();
+        	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        	std::cout << "Malfunction code? ";
+        	std::cin >> laborCost;
+        }
 
     try {
         inDB.addRenovation(malfunctionCode, modelCode, description, symptoms, repairMethods,
