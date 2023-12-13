@@ -5,12 +5,42 @@
 using namespace std;
 
 namespace Records {
-    Renovation::Renovation()
-    {
-        malfunctionCode = -1;
-        modelCode = -1;
-        
-    }
+    Renovation::Renovation() : 
+        malfunctionCode(0), 
+        modelCode(0), 
+        description(""), 
+        symptoms(""), 
+        repairMethods(""),
+        partCode1(0), 
+        partCode2(0), 
+        partCode3(0), 
+        laborCost(0), 
+        repaired(false), 
+        renovationID(0) {
+        }
+
+    Renovation::Renovation(
+    	int malfunction, 
+    	int model, 
+    	const std::string& desc, 
+    	const std::string& sym, 
+    	const std::string& repair, 
+    	int part1, 
+    	int part2, 
+    	int part3,
+    	int laborcost): 
+        malfunctionCode(malfunction), 
+        modelCode(model), 
+        description(desc), 
+        symptoms(sym),
+        repairMethods(repair), 
+        partCode1(part1), 
+        partCode2(part2), 
+        partCode3(part3),
+        laborCost(laborcost), 
+        repaired(false), 
+        renovationID(0) {}
+
 
   
     void Renovation::setMalfunctionCode(int inMalfunctionCode)
