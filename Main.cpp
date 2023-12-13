@@ -18,14 +18,14 @@ void markRenovationAsRepaired(Database& inDB);
 
 
 int main(int argc, char** argv) {
-    Renovation ren1 = Renovation();
-
-
-    Renovation* ren2 = new Renovation();
-
-    delete ren2;
-
     Database renovationDB;
+    
+    Renovation ren1(12, 13, "glass", "broken", "replace", 15, 154, 11);
+    ren1.display();
+
+    Renovation* ren2 = new Renovation(22, 23, "button", "erased", "repaint", 25, 254, 21);
+    ren2->display();
+    delete ren2;
     bool done = false;
 
     while (!done) {
