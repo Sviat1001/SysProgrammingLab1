@@ -145,7 +145,7 @@ void addRenovation(Database& inDB) {
         inDB.addRenovation(malfunctionCode, modelCode, description, symptoms, repairMethods,
             partCode1, partCode2, partCode3, laborCost);
     }
-    catch (std::exception ex) {
+    catch (const std::exception& ex) {
         cerr << "Unable to add new renovation!" << endl;
     }
 }
@@ -172,7 +172,7 @@ void markRenovationAsRepaired(Database& inDB) {
         renovation.setRepaired(true);
         cout << "Renovation " << renovationID << " has been marked as repaired." << endl;
     }
-    catch (std::exception ex) {
+    catch (const std::exception& ex) {
         cerr << "Unable to mark renovation as repaired!" << endl;
     }
 }
