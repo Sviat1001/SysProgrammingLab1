@@ -2,12 +2,22 @@
 #include <string>
 
 namespace Records {
-    const int kDefaultStartingLaborCost = 3000;
 
     class Renovation {
     public:
+
         Renovation();
-        
+        Renovation(
+    	    int malfunction, 
+    	    int model, 
+    	    const std::string& desc, 
+    	    const std::string& sym,
+            const std::string& repair, 
+            int part1, 
+            int part2, 
+            int part3,
+            int laborcost);
+
         void changeLaborCost(int newCost);
         void completeRepair();
         void display(); 
